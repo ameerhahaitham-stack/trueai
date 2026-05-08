@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: #08080f;
+  color: #e8e8f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(108,99,255,0.3); border-radius: 2px; }
+
+/* Cards */
+.card-dark {
+  @apply bg-surface-100 border border-white/5 rounded-2xl;
+}
+
+/* Buttons */
+.btn-tai {
+  @apply bg-tai-600 hover:bg-tai-800 text-white rounded-xl px-5 py-2.5 text-sm font-medium
+         transition-all duration-150 active:scale-95 cursor-pointer flex items-center justify-center gap-2;
+}
+.btn-ghost {
+  @apply border border-white/10 bg-transparent hover:bg-white/5 text-white/70 hover:text-white
+         rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-150 active:scale-95 cursor-pointer;
+}
+
+/* Inputs */
+.input-dark {
+  @apply w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white
+         placeholder-white/25 outline-none focus:border-tai-400 focus:ring-2 focus:ring-tai-600/20
+         transition-all duration-150;
+}
+
+/* Glow badge */
+.badge-ai {
+  @apply text-xs px-2.5 py-1 rounded-full font-medium;
+  background: rgba(108,99,255,0.15);
+  color: #A78BFA;
+  border: 0.5px solid rgba(108,99,255,0.3);
+}
+
+/* Growth indicators */
+.growth-up   { @apply text-emerald-400; }
+.growth-down { @apply text-red-400; }
+
+/* Live pulse */
+.live-dot {
+  @apply w-2 h-2 bg-red-500 rounded-full;
+  animation: livePulse 1s ease-in-out infinite;
+}
+@keyframes livePulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+
+/* AI orb glow */
+.ai-orb {
+  animation: orbGlow 3s ease-in-out infinite;
+}
+@keyframes orbGlow {
+  0%,100% { box-shadow: 0 0 0 0 rgba(108,99,255,0); }
+  50%      { box-shadow: 0 0 20px 6px rgba(108,99,255,0.2); }
+}
+
+/* Trend card hover */
+.trend-card {
+  @apply card-dark p-4 cursor-pointer transition-all duration-150;
+}
+.trend-card:hover {
+  border-color: rgba(108,99,255,0.4);
+  transform: translateY(-1px);
+}
